@@ -1,0 +1,16 @@
+.buttoncreate{
+  margin-top: 20px;
+
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+
+}
+.form-spacing-edit{
+  margin-top: 20px;
+}
+/*this font affect the nav bar plus all its components, you can delete this css class to undo changes if needed...*/
+.nav_bar{
+  font-family: 'Lato', sans-serif;
+  font-weight: 700;
+
+}
