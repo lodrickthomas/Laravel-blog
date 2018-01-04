@@ -45,6 +45,14 @@
           </div> --}}
 
         </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-12">
+            {!! Html::linkRoute('posts.index', 'Back to Posts', array(), array('class'=>'btn btn-primary btn-block btn-sm ')) !!}
+
+          </div>
+
+        </div>
 
       </dl>
     </div>

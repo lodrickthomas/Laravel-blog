@@ -45,6 +45,10 @@
         @endforeach
       </tbody>
     </table>
+    {{-- this display posts in pagination form... --}}
+    <div class="text-center">
+      {!! $posts->links(); !!}
+    </div>
   </div>
 
 

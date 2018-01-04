@@ -14,7 +14,8 @@ class PostController extends Controller
      */
     public function index()
     {
-      $posts = Post::all();
+      // you can orderBy('id') which is likey to be faster than created_at, either way can be asc or desc
+      $posts = Post::orderBy('created_at', 'desc') -> paginate(5);
       return view('posts.index')->with('posts',$posts);
     }
 

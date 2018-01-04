@@ -11,9 +11,9 @@
   <div class="row">
     <div class="col-md-12">
       <div class="jumbotron">
-        <h1>Hello, world!</h1>
-        <p class="lead">You are welcome to laravel blog</p>
-        <p><a class="btn btn-primary btn-md" href="#" role="button">Popular Posts</a></p>
+        <h2 class="text-center">Hello, Africa!</h2>
+        <p class="lead text-center">You are welcome to laravel blog</p>
+        <p class="text-center"><a class="btn btn-primary btn-md" href="#" role="button">Popular Posts</a></p>
         {{-- <p><a class="btn btn-primary btn-lg" href="#" role="button">Popular POsts</a></p> --}}
       </div>
     </div>
@@ -22,29 +22,16 @@
 
   <div class="row">
     <div class="col-md-8">
-      <div class="post">
-        <h3>Post title</h3>
-        <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui</p>
-          <a href="#" class="btn btn-primary btn-sm" >Read more</a>
-      </div>
-      <hr>
-      <div class="post">
-        <h3>Post title</h3>
-        <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui</p>
-          <a href="#" class="btn btn-primary">Read more</a>
-      </div>
-      <hr>
-      <div class="post">
-        <h3>Post title</h3>
-        <p>  Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqui</p>
-          <a href="#" class="btn btn-primary">Read more</a>
-      </div>
+      @foreach ($posts as $post)
+
+        <div class="post">
+          <h3>{{ $post->title }}</h3>
+          {{-- display post body whilst limiting them to only 300 when exceed 300 char "..." displays --}}
+          <p> {{ substr($post->body,0,300) }} {{ strlen($post->body)>300 ? "..." : "" }}</p>
+            <a href="#" class="btn btn-primary btn-sm" >Read more</a>
+        </div>
+
+      @endforeach
 
     </div>
     <div class="col-md-3 col-md-offset-1">
