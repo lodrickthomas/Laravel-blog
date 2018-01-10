@@ -28,7 +28,7 @@
           <h3>{{ $post->title }}</h3>
           {{-- display post body whilst limiting them to only 300 when exceed 300 char "..." displays --}}
           <p> {{ substr($post->body,0,300) }} {{ strlen($post->body)>300 ? "..." : "" }}</p>
-            <a href="#" class="btn btn-primary btn-sm" >Read more</a>
+            <a href="{{ route('blog.single', $post->slug) }}" class="btn btn-primary btn-sm" >Read more</a>
         </div>
 
       @endforeach

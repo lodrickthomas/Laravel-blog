@@ -16,8 +16,15 @@
   <div class="form-group">
       {{ Form::label('title', 'Title:') }}
 
-      {{ Form::text('title', '', array('class'=>'form-control', 'placeholder'=>'Enter your post title here...')) }}
+      {{ Form::text('title', null, array('class'=>'form-control','required'=>'','maxlenght'=>'255', 'placeholder'=>'Enter your post title here...')) }}
   </div>
+
+  <div class="form-group">
+      {{ Form::label('slug', 'Slug:') }}
+
+      {{ Form::text('slug', null, array('class'=>'form-control','required'=>'','minlength'=>'5','maxlenght'=>'255', 'placeholder'=>'Enter your post title here...')) }}
+  </div>
+
   <div class="form-group">
       {{ Form::label('body', 'Post Body:') }}
 

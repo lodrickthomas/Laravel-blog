@@ -12,17 +12,24 @@
     <h1>{{ $post->title }}</h1>
     <p class="lead">
       {{ $post->body }}
+
     </p>
   </div>
 
   <div class="col-md-4">
     <div class="well">
       <dl class="dl-horizontal">
-        <dt>Created at:</dt>
-        <dd>{{ date('M j, Y h:ia',strtotime($post->created_at))}}</dd>
+        {{-- dt can be changed to label and dd can be changed to p --}}
+        <label>URL:</label>
+        <p> <a href="{{ route('blog.single', $post->slug) }}">{{ route('blog.single', $post->slug) }}</a> </p>
         <hr>
-        <dt>Last Update at:</dt>
-        <dd>{{ date('M j, Y h:ia',strtotime($post->updated_at))}} </dd>
+
+        <label>Created at:</label>
+        <p>{{ date('M j, Y h:ia',strtotime($post->created_at))}}</p>
+      {{-- hr --}}
+
+        <label>Last Update at:</label>
+        <p>{{ date('M j, Y h:ia',strtotime($post->updated_at))}} </p>
         <hr>
 
 

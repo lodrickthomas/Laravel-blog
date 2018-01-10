@@ -14,9 +14,13 @@
 
   <div class="col-md-8">
     {{-- title goes here... --}}
-    {{ Form::label('title', 'Title:') }}
-    {{ Form::text('title', null, array('class'=>'form-control', 'placeholder'=>'Enter your post title here...')) }}
-    {{ Form::label('body', 'Post Body:', array('class'=>'form-spacing-edit')) }}
+    {{ Form::label('title', 'Title:')}}
+    {{ Form::text('title', null, array('class'=>'form-control ', 'placeholder'=>'Enter your post title here...')) }}
+
+    {{ Form::label('slug', 'Slug:'),array('class'=>'form-spacing-top') }}
+    {{ Form::text('slug', null, array('class'=>'form-control ', 'placeholder'=>'Enter your post title here...')) }}
+
+    {{ Form::label('body', 'Post Body:', array('class'=>'form-spacing-top')) }}
     {{ Form::textarea('body', null, array('class'=>'form-control', 'placeholder'=>'Enter your post here...')) }}
   </div>
 

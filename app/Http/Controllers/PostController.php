@@ -41,11 +41,13 @@ class PostController extends Controller
         $this->validate($request,array(
           // i got some errors because i typed title and body as variables with $
           'title' => 'required|max:255',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
           'body' => 'required',
         ));
         // store data in db
         $post = new Post;
         $post -> title = $request -> title;
+        $post -> slug = $request -> slug;
         $post -> body = $request -> body;
 
         $post -> save();
@@ -90,12 +92,30 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
+
+      // at first slug was created, but when user update post slug return an error claiming that it suppose to be unique, i intoduce if-else statement to solve that bug...
+      $post = Post::find($id);
       // validate data
-      $this->validate($request,array(
-        // i got some errors because i typed title and body as variables with $
-        'title' => 'required|max:255',
-        'body' => 'required',
-      ));
+      //if-else checks if slug is there and require not to be re-updated
+      if ($request->input('slug') == $post->slug) {
+        # code...
+        $this->validate($request,array(
+          // i got some errors because i typed title and body as variables with $
+          'title' => 'required|max:255',
+
+          'body' => 'required',
+        ));
+      } else {
+        # code...
+        $this->validate($request,array(
+          // i got some errors because i typed title and body as variables with $
+          'title' => 'required|max:255',
+          'slug' => 'required|alpha_dash|min:5|max:255|unique:posts,slug',
+          'body' => 'required',
+        ));
+      }
+
+
 
       // store data in db
       $post = Post::find($id);

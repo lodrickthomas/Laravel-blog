@@ -14,6 +14,8 @@
 // Route::get('/', function () {
 //     return view('welcome');
 // });
+
+Route::get('blog/{slug}', ['as'=>'blog.single','uses'=>'BlogController@single'])->where('slug', '[\w\d\-\_]+');
 Route::get('/', 'PagesController@welcome');
 Route::get('/about', 'PagesController@about');
 Route::get('/contact', 'PagesController@contact');
