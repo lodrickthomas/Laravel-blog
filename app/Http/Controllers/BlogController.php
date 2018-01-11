@@ -15,6 +15,16 @@ class BlogController extends Controller
 
       // retuen the view
 
-      return view('blog.single')->with('post', '$post');
+      // return view('blog.single')->with('post', '$post');
+      return view('blog.single')->with(compact('post'));
+    }
+
+    public function index()
+    {
+      $posts = Post::orderBy('created_at', 'desc') ->paginate(10);
+
+      // changed from with('posts','posts') to compact
+
+      return view('blog.index')->with(compact('posts'));
     }
 }
